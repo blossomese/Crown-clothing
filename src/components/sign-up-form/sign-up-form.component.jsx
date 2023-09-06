@@ -74,7 +74,7 @@ const SignUpForm = () => {
           value={email}
         />
 
-        <iFormInput
+        <FormInput
           label="Password"
           type="password"
           required
