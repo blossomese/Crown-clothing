@@ -6,7 +6,8 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-import './sign-up-form.styles.scss'
+
+import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -18,6 +19,9 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+
+
+  console.log("hit");
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -33,7 +37,7 @@ const SignUpForm = () => {
 
     try {
       const { user } = createAuthUserWithEmailAndPassword(email, password);
-
+      setCurrentUser(user);
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
@@ -84,7 +88,7 @@ const SignUpForm = () => {
         />
 
         <FormInput
-        label='Confirm Password'
+          label="Confirm Password"
           type="password"
           required
           onChange={handleChange}
@@ -92,7 +96,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button  type="submit">Sign Up</Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
