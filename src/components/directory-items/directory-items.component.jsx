@@ -4,14 +4,14 @@ import { BackgroundImage, Body, DirectoryItemContainer } from "./directory-items
 
 
 const DirectoryItem = ({ category }) => {
-    const { imageUrl, title, id, route} = category
+    const { imageUrl, title, route} = category
 const navigate = useNavigate()
 
 
 const onNavigateHandler = navigate(route)
 
 return (
-    < DirectoryItemContainer key={id} onClick={onNavigateHandler} >
+    < DirectoryItemContainer  onClick={onNavigateHandler} >
           <BackgroundImage
             imageUrl={imageUrl}
           />
